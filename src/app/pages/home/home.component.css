@@ -1,0 +1,24 @@
+.home{
+    background-color: rgb(17, 241, 241);
+    border-bottom: solid 5px rgb(0, 0, 0);
+    width: 100%;
+}
+.logo{
+    width: 10rem;
+    height: 6rem;
+}
+.title{
+    font-weight: 600;
+    padding: 5px;
+    text-align: center;
+}
+p{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    font-weight: 400;
+}

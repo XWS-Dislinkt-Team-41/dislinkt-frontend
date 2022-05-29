@@ -1,0 +1,23 @@
+.header{
+    width: 100%;
+    background-color: rgb(247, 238, 237);
+    border-bottom: solid 10px rgb(0, 0, 0);
+}
+.menu{
+    margin: 30px;
+    padding: 5px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 12rem;
+    height: 8rem;
+}
+.menu li{
+    font-size: 40px;
+    padding: 0px;
+    text-align: center;
+}

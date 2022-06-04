@@ -1,42 +1,42 @@
-.header{
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.914);
-    border-bottom: solid 5px rgb(0, 0, 0);
+.container-fluid{
+    background-color: rgba(213, 195, 195, 0.914);
+    border-bottom: solid 10px rgb(0, 0, 0);
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0%;
 }
-.logo{
-    width: 15rem;
+#logo{
+    width: 17rem;
     height: 7rem;
-    margin: 10px;
-    padding: 10px;
 }
-.menu{
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    list-style: none;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-    font-weight: 600;
-    padding: 5px;
-    text-align: center;
+#navbarNavAltMarkup{
+    justify-items: center;
+    justify-content: space-around;
 }
-.nav-link{
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    list-style: none;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-    font-weight: 600;
-    padding: 5px;
-    text-align: center;
-}
-.icons{
-    width: 40px;
+.pressB{
+    width: 80px;
     height: 40px;
+    background-color: rgba(48, 143, 206, 0.914);
+    border-bottom: solid 6px rgba(48, 143, 206, 0.914);
+    font-weight: bold;
 }
-.jobs{
-    margin-right: 70px;
+#sgin{
+    margin-left: 400px;
+}
+#sgup{
+    margin-left: 100px;
+}
+#logout{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 250px;
+}
+.container-gif{
+    background-color: rgba(48, 143, 206, 0.914);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding-top: 0%;
+    margin-top: 0%;
 }

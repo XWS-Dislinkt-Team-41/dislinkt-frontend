@@ -1,0 +1,42 @@
+.header{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.914);
+    border-bottom: solid 5px rgb(0, 0, 0);
+}
+.logo{
+    width: 15rem;
+    height: 7rem;
+    margin: 10px;
+    padding: 10px;
+}
+.menu{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    font-weight: 600;
+    padding: 5px;
+    text-align: center;
+}
+.nav-link{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    font-weight: 600;
+    padding: 5px;
+    text-align: center;
+}
+.icons{
+    width: 40px;
+    height: 40px;
+}
+.jobs{
+    margin-right: 70px;
+}

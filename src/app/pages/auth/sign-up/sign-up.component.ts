@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OptionsForm } from '@auth/form/form.component';
+import { ACTIONS } from '@shared/navbar/Consts/Consts';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +9,7 @@ import { OptionsForm } from '@auth/form/form.component';
 })
 export class SignUpComponent {
   options: OptionsForm = {
-    id: 'Sign-Up',
-    label: 'Sign-Up'
+    id: ACTIONS.signUp,
+    label: ACTIONS.signUp
   }
 }

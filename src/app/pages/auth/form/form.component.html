@@ -3,25 +3,28 @@
     <br>
     <div class="text-center">
         <h3 class="h3">
-            LOGIN TO YOUR ACCOUNT
+            {{options.label}}
         </h3>
     </div>
     <br>
     <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Email:</label>
             <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1">Password:</label>
             <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{options.label}}</button>
         <div class="text-center mt-5">
-            <a [routerLink]="['/sign-up']" class="text-black">
-                Create new account
-            </a>
+            <ng-container *ngIf="options.id == SignIn; else showSignTemplate">
+                <a [routerLink]="['/sign-up']" class="text-black">Create new account</a>
+            </ng-container>
         </div>
     </form>
+    <ng-template #showSignTemplate>
+        <a [routerLink]="['/sign-in']" class="text-black">Already have an account? <small>Sign-In here!</small></a>
+    </ng-template>
 </section>

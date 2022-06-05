@@ -3,7 +3,7 @@ import { ApiError, createClient, Session, SupabaseClient, User } from "@supabase
 import { environment } from "@env/environment";
 import { BehaviorSubject, Observable } from "rxjs";
 import { USER_STORAGE_KEY } from "@shared/constants/constant";
-import { UserCredentials } from '@firebase/auth-types';
+import { UserCredentials } from "@firebase/app";
 
 type supabaseResponse = User | Session | ApiError | null;
 @Injectable({providedIn:'root'})

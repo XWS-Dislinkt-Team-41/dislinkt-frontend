@@ -4,7 +4,7 @@
 
 <br>
 
-![](Dislinkt_logo.png)
+![](images/Dislinkt_logo.png)
 
 <br>
 

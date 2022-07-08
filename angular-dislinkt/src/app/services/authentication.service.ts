@@ -1,9 +1,9 @@
+import { Role } from './../model/role';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, distinctUntilChanged, Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IRole } from '../model/role';
 import { IToken } from '../model/token';
 import { IUser } from '../model/user';
 import { IUserLogin } from '../model/userLogin';
@@ -16,8 +16,8 @@ export class AuthenticationService {
   private userUrl = `${environment.apiUrl}/user`;
 
   private accessToken = localStorage.getItem('jwt');
-  private userSubject = new BehaviorSubject<IUser>({} as IUser);
-  public user = this.userSubject.asObservable().pipe(distinctUntilChanged());
+  public userSubject = new BehaviorSubject<IUser>({} as IUser);
+  public userObs = this.userSubject.asObservable().pipe(distinctUntilChanged());
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -30,11 +30,17 @@ export class AuthenticationService {
     );
   }
 
-  login(user: IUserLogin) {
-    return this.http.post<any>(`${this.authUrl}/login`, user).pipe(
+  public get user(): IUser {
+    return this.userSubject.value;
+  }
+
+  login(user: IUserLogin): Observable<IToken> {
+    return this.http.post<IToken>(`${this.userUrl}/login`, user).pipe(
       map((res: IToken) => {
-        localStorage.setItem('jwt', res.accessToken);
-        this.accessToken = res.accessToken;
+        localStorage.setItem('jwt', res.token);
+        this.accessToken = res.token;
+        this.getUser().subscribe();
+        return res;
       })
     );
   }
@@ -58,7 +64,7 @@ export class AuthenticationService {
     return this.accessToken !== undefined && this.accessToken !== null;
   }
 
-  isAuthorized(role: IRole): Observable<boolean> {
+  isAuthorized(role: Role): Observable<boolean> {
     return this.http.post<boolean>(`${this.authUrl}/authorize`, role);
   }
 }

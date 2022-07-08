@@ -1,4 +1,3 @@
-export interface IRole {
-  id: number;
-  name: string;
+export enum Role {
+  User = "USER", Admin = "ADMIN", Agent = "AGENT"
 }

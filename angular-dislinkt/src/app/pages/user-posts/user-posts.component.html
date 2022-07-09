@@ -1,4 +1,4 @@
-<div *ngIf="user!==undefined" class="container con">
+<div *ngIf="user !== undefined" class="container con">
   <div *ngIf="user">
     <div class="profile-header">
       <div class="profile-img">
@@ -11,7 +11,8 @@
       <div class="profile-nav-info">
         <h3 class="user-name">{{ user.username }}</h3>
         <div class="address">
-          <p id="state" class="state">{{ user.email }}</p>
+          <p id="state" class="state">New York,</p>
+          <span id="country" class="country">USA.</span>
         </div>
       </div>
     </div>
@@ -22,15 +23,13 @@
         [userId]="userId"
       ></app-customer-profile>
       <!-- <app-admin-profile
-        [user]="user"
-        [userId]="userId"
-      ></app-admin-profile> -->
-      <div class="right-side">
+          [user]="user"
+          [userId]="userId"
+        ></app-admin-profile> -->
+      <div class="right-side col-8 pl-5">
         <div class="profile-body">
           <div class="profile-posts">
-            <app-change-user-info
-              [userId]="userId"
-            ></app-change-user-info>
+            <app-news-feed [posts]="posts"></app-news-feed>
           </div>
         </div>
       </div>

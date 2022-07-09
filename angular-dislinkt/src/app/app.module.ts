@@ -1,3 +1,5 @@
+import { HomeComponent } from './pages/home/home.component';
+import { NewsFeedComponent } from './pages/news-feed/news-feed.component';
 import { ChangeUserInfoComponent } from './pages/user-profile/edit/change-user-info.component';
 import { AdminProfileComponent } from './pages/user-profile/view/admin-profile/admin-profile.component';
 import { UserProfileComponent } from './pages/user-profile/view/user-profile.component';
@@ -22,6 +24,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { PostComponent } from './components/post-feed/post.component';
+import { UserPostsComponent } from './pages/user-posts/user-posts.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
     CustomerProfileComponent,
     AdminProfileComponent,
     UserProfileComponent,
-    ChangeUserInfoComponent
+    ChangeUserInfoComponent,
+    PostComponent,
+    NewsFeedComponent,
+    UserPostsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

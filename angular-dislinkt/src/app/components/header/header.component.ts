@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/model/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { IUserLogin } from 'src/app/model/userLogin';
+import { IUserProfile } from 'src/app/model/profile';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,11 @@ import { IUserLogin } from 'src/app/model/userLogin';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  loggedInUser!: IUser;
+  userLogin: IUserLogin = {
+    username: '',
+    password: '',
+  };
+  loggedInUser!: IUserProfile;
   username!:string;
   password!:string;
   regLink!:string;
@@ -39,8 +44,11 @@ export class HeaderComponent implements OnInit {
   isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
   }
-  login(){
 
+  login(){
+    this.authenticationService.login(this.userLogin).subscribe(() => {
+      this.getUser();
+    });
   }
 
 }

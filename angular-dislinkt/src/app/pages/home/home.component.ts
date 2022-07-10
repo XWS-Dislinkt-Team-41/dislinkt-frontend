@@ -15,10 +15,11 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _profileService: UserProfileService,
-    private _postService: PostService
+    private _postService: PostService,
   ) {}
 
   ngOnInit(): void {
+
     this._profileService
       .getUserById('626ed920b5d7948d48ffc170')
       .subscribe((user) => {

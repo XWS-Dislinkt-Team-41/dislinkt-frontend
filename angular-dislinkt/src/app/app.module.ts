@@ -21,16 +21,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { PostComponent } from './components/post-feed/post.component';
 import { UserPostsComponent } from './pages/user-posts/user-posts.component';
 import { JobOffersComponent } from './pages/job-offers/job-offers.component';
 import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-job-offer.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UsersComponent } from './pages/users/users.component';
+import { FollowRequestsComponent } from './follow-requests/follow-requests.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { NgpImagePickerModule } from 'ngp-image-picker';
+import { ChatComponent } from './pages/chat/chat.component';
+import { BaseChatComponent } from './components/base-chat/base-chat.component';
+import { BaseMessageComponent } from './components/base-message/base-message.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +54,15 @@ import { UsersComponent } from './pages/users/users.component';
     JobOffersComponent,
     AddEditJobOfferComponent,
     UserCardComponent,
-    UsersComponent
+    UsersComponent,
+    FollowRequestsComponent,
+    AddPostComponent,
+    RegisterUserComponent,
+    ChatComponent,
+    BaseChatComponent,
+    BaseMessageComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -65,12 +79,14 @@ import { UsersComponent } from './pages/users/users.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgbModule
+    NgbModule,
+    NgpImagePickerModule,
+    MatTabsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   bootstrap: [AppComponent],
 })

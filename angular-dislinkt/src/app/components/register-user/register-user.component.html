@@ -1,0 +1,267 @@
+<div>
+  <button class="btn btn-outline-danger reservationbtn" (click)="open(content)">
+    Register
+  </button>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        KVZR AGENT Register form
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row my-5 mx-2 main regist2">
+        <div class="col-md-12 col-12 xcol">
+          <h2 class="title pt-3 pb-3">Account information</h2>
+
+              <form class="myform">
+                <div class="row rone">
+                  <div class="col-md-6 fone py-3">
+                    <ng-template> First name</ng-template>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>First name</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="user.firstname"
+                        name="firstName"
+                        placeholder="First"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-6 ftwo py-3">
+                    <ng-template matStepLabel>Fill out lastname</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Last name</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="user.lastname"
+                        name="lastname"
+                        placeholder="Last name"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row rtwo">
+                  <div class="form-group col-md-6 ffour py-3">
+                    <ng-template>Contact</ng-template>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Contact</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="user.mobileNumber"
+                        name="contact"
+                        placeholder="+381 ..."
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-6 ffive py-3">
+                    <ng-template>Gender</ng-template>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Gender</mat-label>
+                      <mat-select [(ngModel)]="user.gender" name="gender">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Other">Other</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row rthree">
+                  <div class="form-group col-md-6 ffour py-3">
+                    <ng-template>Email</ng-template>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Email</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="user.email"
+                        name="email"
+                        placeholder="...@email.com"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-6 ffive py-3">
+                    <ng-template>Gender</ng-template>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Choose a birthdate</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="user.birthDay"
+                        [min]="minDate"
+                        [matDatepicker]="picker"
+                        name="birthdate"
+                      />
+                      <mat-hint>DD/MM/YYYY</mat-hint>
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row rfour">
+                  <div class="form-group col-md-6 fsix py-3">
+                    <ng-template matStepLabel>Fill out password</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Password</mat-label>
+                      <input
+                        type="password"
+                        matInput
+                        [(ngModel)]="user.password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-6 fseven py-3">
+                    <ng-template matStepLabel>Confirm password</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Confirm password</mat-label>
+                      <input
+                        type="password"
+                        matInput
+                        [(ngModel)]="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm password"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row rfive">
+                  <div class="form-group col-md-2 fsix py-3">
+                    <ng-template matStepLabel>Fill out biography</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Biography</mat-label>
+                      <textarea
+                        matInput
+                        [(ngModel)]="user.biography"
+                        name="biography"
+                        placeholder="Biography"
+                        required
+                      >
+                  {{ user.biography }}
+                  </textarea
+                      >
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+              <form class="myform">
+                <div class="row rone">
+                  <div class="form-group col-md-6 fone py-3">
+                    <ng-template matStepLabel>Experience</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Experience</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="experience"
+                        name="experience"
+                        placeholder="experience"
+                        required
+                      />
+                    </mat-form-field>
+                    <button mat-raised-button (click)="addExperience()">
+                      Add
+                    </button>
+                  </div>
+                  <div class="form-group col-md-6 ftwo py-3">
+                    <ul>
+                      <li *ngFor="let exp of user.experience">{{ exp }}</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row rfive">
+                  <div class="form-group col-md-2 fsix py-3">
+                    <ng-template matStepLabel>Choose and education</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Education</mat-label>
+                      <mat-select [(ngModel)]="user.education" name="education">
+                        <mat-option
+                          *ngFor="let education of educationTypes"
+                          value="education"
+                          >{{ educationMapping[education] }}</mat-option
+                        >
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+
+              <form class="myform">
+                <div class="row rone">
+                  <div class="form-group col-md-6 fone py-3">
+                    <ng-template matStepLabel>Interests</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Interests</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="interest"
+                        name="interest"
+                        placeholder="interest"
+                        required
+                      />
+                    </mat-form-field>
+                    <button mat-raised-button (click)="addInterest()">
+                      Add
+                    </button>
+                  </div>
+                  <div class="form-group col-md-6 ftwo py-3">
+                    <ul>
+                      <li *ngFor="let int of user.interests">{{ int }}</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row rone">
+                  <div class="form-group col-md-6 fone py-3">
+                    <ng-template matStepLabel>Skills</ng-template>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Skills</mat-label>
+                      <input
+                        matInput
+                        [(ngModel)]="skill"
+                        name="skill"
+                        placeholder="skill"
+                        required
+                      />
+                    </mat-form-field>
+                   
+                  </div>
+                  <div class="form-group col-md-6 ftwo py-3">
+                    <ul>
+                      <li *ngFor="let sk of user.skills">{{ sk }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="register()">
+        Create
+      </button>
+    </div>
+  </ng-template>
+</div>

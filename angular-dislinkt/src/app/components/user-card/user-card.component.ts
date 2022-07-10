@@ -13,7 +13,7 @@ import { UserProfileService } from 'src/app/services/user-profile.service';
 })
 export class UserCardComponent implements OnInit {
   @Input() user!: IUserProfile;
-  currentUser!: IUser;
+  currentUser!: IUserProfile;
 
   constructor(
     private _connectService: ConnectService,
@@ -33,7 +33,7 @@ export class UserCardComponent implements OnInit {
       .subscribe((connection) => {});
   }
 
-  userProfile() {
+  userProfile(id:string) {
     this._router.navigateByUrl(`/userPosts`);
   }
 

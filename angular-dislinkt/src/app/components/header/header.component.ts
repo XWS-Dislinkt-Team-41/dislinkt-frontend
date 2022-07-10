@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/model/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { IUserLogin } from 'src/app/model/userLogin';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
   loggedInUser!: IUser;
+  username!:string;
+  password!:string;
+  regLink!:string;
 
   constructor(private authenticationService: AuthenticationService) {}
 
@@ -35,4 +39,8 @@ export class HeaderComponent implements OnInit {
   isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
   }
+  login(){
+
+  }
+
 }

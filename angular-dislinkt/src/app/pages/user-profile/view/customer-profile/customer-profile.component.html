@@ -1,0 +1,46 @@
+<div class="left-side" *ngIf="user">
+  <div class="profile-side">
+    <div class="user-bio">
+      <h2 class="user-mail">
+        <i class="fa fa-envelope"></i> {{ user.firstname }} {{ user.lastname }}
+      </h2>
+    </div>
+    <div>
+      <p class="user-mail">
+        <i class="fa fa-envelope"></i>Biography: {{ user.biography }}
+      </p>
+    </div>
+    <div>
+      <p class="user-mail">
+        <i class="fa fa-envelope"></i>Education: {{ user.education }}
+      </p>
+    </div>
+    <div>
+      <h3>Skills:</h3>
+      <ul>
+        <li *ngFor="let skill of user.skills" class="user-mail">
+          <i class="fa fa-envelope"></i>{{ skill }}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Interests:</h3>
+      <ul>
+        <li *ngFor="let interest of user.interests" class="user-mail">
+          <i class="fa fa-envelope"></i>{{ interest }}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p class="user-mail">
+        <i class="fa fa-envelope"></i>Education: {{ user.education }}
+      </p>
+    </div>
+
+    <div class="profile-btn">
+      <button (click)="openDialog()" class="createbtn" id="Create-post">
+        <i class="fas fa-user-times"></i> Delete Account
+      </button>
+    </div>
+  </div>
+</div>

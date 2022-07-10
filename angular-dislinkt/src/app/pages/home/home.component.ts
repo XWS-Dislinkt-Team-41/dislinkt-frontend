@@ -23,8 +23,13 @@ export class HomeComponent implements OnInit {
       .getUserById('626ed920b5d7948d48ffc170')
       .subscribe((user) => {
         this.user = user.user;
-        this._postService.getConnectedPosts(this.user.id).subscribe((data) => {
-          this.posts = data.posts;
+        this._postService.getUserPosts(this.user.id).subscribe((data) => {
+          this.posts=data.posts;
+           this._postService.getConnectedPosts(this.user.id).subscribe((data) => {
+            if(data.posts!=null)
+              this.posts.concat(data.posts);
+            this.posts = this.posts.sort((a, b) =>b.createdAt.getTime() - a.createdAt.getTime())
+          });
         });
       });
   }

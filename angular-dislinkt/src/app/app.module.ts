@@ -1,4 +1,3 @@
-import { ChatComponent } from './pages/home/chat/chat.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NewsFeedComponent } from './pages/news-feed/news-feed.component';
 import { ChangeUserInfoComponent } from './pages/user-profile/edit/change-user-info.component';
@@ -29,6 +28,9 @@ import { PostComponent } from './components/post-feed/post.component';
 import { UserPostsComponent } from './pages/user-posts/user-posts.component';
 import { JobOffersComponent } from './pages/job-offers/job-offers.component';
 import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-job-offer.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { BaseChatComponent } from './components/base-chat/base-chat.component';
+import { BaseMessageComponent } from './components/base-message/base-message.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     JobOffersComponent,
     AddEditJobOfferComponent,
     ChatComponent,
+    BaseChatComponent,
+    BaseMessageComponent,
   ],
   imports: [
     BrowserModule,

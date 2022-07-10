@@ -1,0 +1,12 @@
+.message {
+  background-color: rgba(6, 185, 245, 0.6);
+  color: black;
+  border-radius: 10px;
+  width: 550px;
+  height: 30px;
+  padding: 5px;
+}
+
+.time {
+  text-align: right;
+}

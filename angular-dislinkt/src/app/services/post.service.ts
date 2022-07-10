@@ -53,6 +53,13 @@ export class PostService {
     );
   }
 
+  getPublicUserPosts(id: string): Observable<any> {
+    return this.http.get<any>(environment.dislinktUrl + `/user/${id}/public`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);
     return throwError(() => new Error('Error'));

@@ -9,12 +9,11 @@ import { UserProfileService } from 'src/app/services/user-profile.service';
 @Component({
   selector: 'app-user-posts',
   templateUrl: './user-posts.component.html',
-  styleUrls: ['./user-posts.component.css']
+  styleUrls: ['./user-posts.component.css'],
 })
 export class UserPostsComponent implements OnInit {
-
   user!: IUserProfile;
-  posts : IPost[] = [];
+  posts: IPost[] = [];
   userId!: string;
   roles: string[] = [
     'ROLE_USER',
@@ -35,11 +34,15 @@ export class UserPostsComponent implements OnInit {
       .getUserById('626ed920b5d7948d48ffc170')
       .subscribe((user) => {
         this.user = user.user;
-        this._postService
-        .getUserPosts(this.user.id)
-        .subscribe((data) => {
-          this.posts = data.posts;
-        });
+        if (this.user.id === '626ed920b5d7948d48ffc170') {
+          this._postService.getUserPosts(this.user.id).subscribe((data) => {
+            this.posts = data.posts;
+          });
+        } else {
+          this._postService.getPublicUserPosts(this.user.id).subscribe((data) => {
+            this.posts = data.posts;
+          });
+        }
       });
   }
 }

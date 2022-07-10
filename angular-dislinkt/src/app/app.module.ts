@@ -26,6 +26,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { PostComponent } from './components/post-feed/post.component';
 import { UserPostsComponent } from './pages/user-posts/user-posts.component';
+import { JobOffersComponent } from './pages/job-offers/job-offers.component';
+import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-job-offer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { UserPostsComponent } from './pages/user-posts/user-posts.component';
     PostComponent,
     NewsFeedComponent,
     UserPostsComponent,
-    HomeComponent
+    HomeComponent,
+    JobOffersComponent,
+    AddEditJobOfferComponent
   ],
   imports: [
     BrowserModule,

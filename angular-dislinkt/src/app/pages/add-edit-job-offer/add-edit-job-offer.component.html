@@ -1,0 +1,111 @@
+<div  class="header mt-5 pb-8 pl-3 pt-5 d-flex justify-content-center">
+  <div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-8">
+          <h3 class="mb-0">Job Offer information</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <form>
+        <!-- Ovde -->
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-company"
+                  >Company</label
+                >
+                <input
+                  type="text"
+                  id="input-company"
+                  name="company"
+                  class="form-control form-control-alternative"
+                  [(ngModel)]="jobOffer.company"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-position"
+                  >Position</label
+                >
+                <input
+                  type="text"
+                  name="position"
+                  id="input-position"
+                  class="form-control form-control-alternative"
+                  [(ngModel)]="jobOffer.position"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-seniority"
+                  >Seniority</label
+                >
+                <input
+                  type="text"
+                  name="seniority"
+                  id="input-seniority"
+                  class="form-control form-control-alternative"
+                  [(ngModel)]="jobOffer.seniority"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-rules"
+                  >Description</label
+                >
+                <textarea
+                  class="form-control form-control-alternative"
+                  id="input-rules"
+                  name="rules"
+                  [(ngModel)]="jobOffer.description"
+                  >{{ jobOffer.description }}</textarea
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-seniority"
+                  >Prerequisite</label
+                >
+                <input
+                  type="text"
+                  name="seniority"
+                  id="input-seniority"
+                  class="form-control form-control-alternative"
+                  [(ngModel)]="prerequisite"
+                />
+              </div>
+              <button
+                class="btn btn-info"
+                matButton
+                (click)="addPrerequisite()"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button (click)="addJobOffer()" class="btn btn-info">
+            Add jobOffer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

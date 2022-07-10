@@ -1,3 +1,4 @@
+import { ChatComponent } from './pages/home/chat/chat.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NewsFeedComponent } from './pages/news-feed/news-feed.component';
 import { ChangeUserInfoComponent } from './pages/user-profile/edit/change-user-info.component';
@@ -43,6 +44,7 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     HomeComponent,
     JobOffersComponent,
     AddEditJobOfferComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

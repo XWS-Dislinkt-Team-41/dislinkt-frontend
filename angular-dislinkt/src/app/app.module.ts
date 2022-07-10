@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-import { MatTabsModule } from '@angular/material/tabs';
-=======
 import { HomeComponent } from './pages/home/home.component';
 import { NewsFeedComponent } from './pages/news-feed/news-feed.component';
 import { ChangeUserInfoComponent } from './pages/user-profile/edit/change-user-info.component';
 import { AdminProfileComponent } from './pages/user-profile/view/admin-profile/admin-profile.component';
 import { UserProfileComponent } from './pages/user-profile/view/user-profile.component';
 import { CustomerProfileComponent } from './pages/user-profile/view/customer-profile/customer-profile.component';
->>>>>>> a7549b7c5875556d1c49811e46088dfd5eb4c267
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,10 +20,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { PostComponent } from './components/post-feed/post.component';
 import { UserPostsComponent } from './pages/user-posts/user-posts.component';
 import { JobOffersComponent } from './pages/job-offers/job-offers.component';
@@ -46,7 +42,7 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     UserPostsComponent,
     HomeComponent,
     JobOffersComponent,
-    AddEditJobOfferComponent
+    AddEditJobOfferComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,12 +59,12 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     MatTabsModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   bootstrap: [AppComponent],
 })

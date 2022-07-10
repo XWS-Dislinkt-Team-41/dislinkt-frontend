@@ -1,9 +1,11 @@
+import { ChatComponent } from './pages/home/chat/chat.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'chat/:id', component: ChatComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

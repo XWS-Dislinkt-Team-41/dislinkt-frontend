@@ -1,4 +1,4 @@
-<div style="height: 200px;" class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+<div style="height: 200px" class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
       <div class="text-center">
@@ -28,4 +28,13 @@
     </div>
   </div>
 </div>
-<app-user-card  *ngFor="let u of users" [user]="u"></app-user-card>
+<mat-tab-group>
+  <mat-tab label="Users">
+    <app-user-card *ngFor="let u of users" [user]="u"></app-user-card
+  ></mat-tab>
+  <mat-tab label="Recommended Users">
+    <app-user-card
+      *ngFor="let u of recommendedUsers"
+      [user]="u"
+    ></app-user-card></mat-tab
+></mat-tab-group>

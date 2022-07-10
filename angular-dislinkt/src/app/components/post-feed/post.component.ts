@@ -3,6 +3,7 @@ import { IPost, IComment } from './../../model/post';
 import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { UserProfileService } from 'src/app/services/user-profile.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-post',
@@ -11,30 +12,33 @@ import { UserProfileService } from 'src/app/services/user-profile.service';
 })
 export class PostComponent implements OnInit {
   @Input() post!: IPost;
-  user!:IUserProfile;
+  user!: IUserProfile;
   liked: boolean = false;
   commentToggle: boolean = false;
-  comment: IComment={
-    text:"",
-    code:""
+  comment: IComment = {
+    text: '',
+    code: '',
   };
 
   constructor(
     private _postService: PostService,
-    private _profileService: UserProfileService
+    private _profileService: UserProfileService,
+    private _authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
-    this._profileService
-      .getUserById('626ed920b5d7948d48ffc170')
-      .subscribe((user) => {
-        this.user = user.user;
-        if (this.post.likedBy != undefined) {
-          if (this.post.likedBy.includes(this.user.id)) {
-            this.liked = true;
+    this._authenticationService.getUser().subscribe((data) => {
+      this._profileService
+        .getUserById(data.id)
+        .subscribe((user) => {
+          this.user = user.user;
+          if (this.post.likedBy != undefined) {
+            if (this.post.likedBy.includes(this.user.id)) {
+              this.liked = true;
+            }
           }
-        }
-      });
+        });
+    });
   }
 
   like() {

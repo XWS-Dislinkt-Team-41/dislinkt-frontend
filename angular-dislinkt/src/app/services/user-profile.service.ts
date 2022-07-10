@@ -19,6 +19,13 @@ export class UserProfileService {
     );
   }
 
+  searchPublicUsers(filter:string): Observable<any> {
+    return this.http.post<any>(environment.dislinktUrl + `/user/search/public`,JSON.stringify(filter)).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   searchUsers(filter:string): Observable<any> {
     return this.http.post<any>(environment.dislinktUrl + `/user/search`,JSON.stringify(filter)).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),
@@ -28,6 +35,13 @@ export class UserProfileService {
 
   getUserById(id: string): Observable<any> {
     return this.http.get<any>(environment.dislinktUrl + `/user/${id}`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  changeAccountPrivacy(userId:string, isPrivate:boolean):Observable<any>{
+    return this.http.put<any>(environment.dislinktUrl + `/user/personal`,{id:userId,isPrivate:isPrivate}).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );

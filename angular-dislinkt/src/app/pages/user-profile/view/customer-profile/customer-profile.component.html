@@ -38,8 +38,10 @@
     </div>
 
     <div class="profile-btn">
-      <button (click)="openDialog()" class="createbtn" id="Create-post">
-        <i class="fas fa-user-times"></i> Delete Account
+      <button (click)="changePrivacy()" class="createbtn" id="Create-post">
+        <i class="fas fa-user-times"></i>
+        <p *ngIf="user.isPrivate==false;xprivate">Go private</p>
+        <ng-template xprivate> <p>Go public</p></ng-template>
       </button>
     </div>
   </div>

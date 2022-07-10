@@ -31,6 +31,10 @@ import { JobOffersComponent } from './pages/job-offers/job-offers.component';
 import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-job-offer.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UsersComponent } from './pages/users/users.component';
+import { FollowRequestsComponent } from './follow-requests/follow-requests.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { NgpImagePickerModule } from 'ngp-image-picker';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,10 @@ import { UsersComponent } from './pages/users/users.component';
     JobOffersComponent,
     AddEditJobOfferComponent,
     UserCardComponent,
-    UsersComponent
+    UsersComponent,
+    FollowRequestsComponent,
+    AddPostComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +72,8 @@ import { UsersComponent } from './pages/users/users.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgbModule
+    NgbModule,
+    NgpImagePickerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

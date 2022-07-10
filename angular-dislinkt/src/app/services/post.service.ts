@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IComment } from '../model/post';
+import { IPost } from '../model/post';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,13 @@ export class PostService {
 
   getConnectedPosts(id: string): Observable<any> {
     return this.http.get<any>(environment.dislinktUrl + `/user/${id}/connect/post`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  addPost(userId: string, post:IPost): Observable<any> {
+    return this.http.post<any>(environment.dislinktUrl + `/user/${userId}/post`,post).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );

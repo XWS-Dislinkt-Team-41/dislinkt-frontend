@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { IPost } from "src/app/model/post";
 
 @Component({
@@ -10,8 +11,12 @@ export class NewsFeedComponent implements OnInit {
   
   @Input() posts: IPost[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
+  }
+
+  addPost() {
+    this.router.navigateByUrl(`/addPost`);
   }
 }

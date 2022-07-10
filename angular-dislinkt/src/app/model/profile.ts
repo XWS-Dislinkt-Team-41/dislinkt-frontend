@@ -39,3 +39,22 @@ export const EducationTypeToLabelMapping: Record<Education, string> = {
   [Education.Master]: "Master",
   [Education.Doctorate]: "Doctorate",
 };
+
+
+export const emptyUserProfile = {
+  id: '',
+  firstname: '',
+  lastname: '',
+  email: '',
+  mobileNumber: '',
+  gender: Gender.Male,
+  birthDay: new Date(),
+  username: '',
+  biography: '',
+  experience: [],
+  education: Education.Primary,
+  skills: [],
+  interests: [],
+  password: '',
+  isPrivate: false
+}

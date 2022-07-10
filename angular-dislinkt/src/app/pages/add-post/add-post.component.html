@@ -1,0 +1,95 @@
+<div  class="header mt-5 pb-8 pl-3 pt-5 d-flex justify-content-center">
+    <div class="card bg-secondary shadow">
+      <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">Post</h3>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <!-- Ovde -->
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-text"
+                    >Text</label
+                  >
+                  <input
+                    type="text"
+                    id="input-text"
+                    name="text"
+                    class="form-control form-control-alternative"
+                    [(ngModel)]="post.text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of post.links">{{item}}</li>
+                  </ul>
+                <div class="form-group">
+                  <label class="form-control-label" for="input-links"
+                    >Links</label
+                  >
+                  <input
+                    type="text"
+                    name="links"
+                    id="input-links"
+                    class="form-control form-control-alternative"
+                    [(ngModel)]="link"
+                  />
+                </div>
+                <button
+                  class="btn btn-info"
+                  matButton
+                  (click)="addLink()"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h6 class="heading-small text-muted mb-4">
+                      Upload a post picture
+                    </h6>
+                    <div
+                      fxFill
+                      fxLayout="column"
+                      fxLayoutAlign="center center"
+                      fxLayoutGap="gappx"
+                    >
+                      <ngp-image-picker
+                        [_config]="imagePickerConf"
+                        ($imageChanged)="onImageChange($event)"
+                        [_imageSrc]="postImage"
+                      ></ngp-image-picker>
+                      <div>
+                        <button
+                          style="margin-top: 15px"
+                          (click)="addPostImage()"
+                          class="btn btn-info"
+                        >
+                          Add image
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+  
+          <div class="mt-4">
+            <button (click)="addPost()" class="btn btn-info">
+              Add post
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

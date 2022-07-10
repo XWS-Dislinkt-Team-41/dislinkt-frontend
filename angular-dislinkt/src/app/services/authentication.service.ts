@@ -1,3 +1,4 @@
+import { IUserProfile } from 'src/app/model/profile';
 import { Role } from './../model/role';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,30 +13,32 @@ import { IUserLogin } from '../model/userLogin';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private authUrl = `${environment.apiUrl}/auth`;
-  private userUrl = `${environment.apiUrl}/user`;
+  private authUrl = `${environment.dislinktUrl}/auth`;
+  private userUrl = `${environment.dislinktUrl}/user`;
 
   private accessToken = localStorage.getItem('jwt');
-  public userSubject = new BehaviorSubject<IUser>({} as IUser);
+  public userSubject = new BehaviorSubject<IUserProfile>({} as IUserProfile);
   public userObs = this.userSubject.asObservable().pipe(distinctUntilChanged());
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) {
+    this.getUser();
+  }
 
-  getUser(): Observable<IUser> {
-    return this.http.get<IUser>(`${this.userUrl}`).pipe(
-      map((user: IUser) => {
+  getUser(): Observable<IUserProfile> {
+    return this.http.get<IUserProfile>(`${this.userUrl}/principal`).pipe(
+      map((user: IUserProfile) => {
         this.userSubject.next(user);
         return user;
       })
     );
   }
 
-  public get user(): IUser {
+  public get user(): IUserProfile {
     return this.userSubject.value;
   }
 
   login(user: IUserLogin): Observable<IToken> {
-    return this.http.post<IToken>(`${this.userUrl}/login`, user).pipe(
+    return this.http.post<IToken>(`${this.authUrl}/login`, user).pipe(
       map((res: IToken) => {
         localStorage.setItem('jwt', res.token);
         this.accessToken = res.token;
@@ -53,7 +56,7 @@ export class AuthenticationService {
   }
 
   purgeUser() {
-    this.userSubject.next({} as IUser);
+    this.userSubject.next({} as IUserProfile);
   }
 
   getToken() {

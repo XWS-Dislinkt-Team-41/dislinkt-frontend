@@ -6,3 +6,10 @@ export interface IUser {
   password: string;
   role: Role;
 }
+
+export const emptyUser ={
+  id: 0,
+  username: '',
+  password: '',
+  role: Role.User
+}

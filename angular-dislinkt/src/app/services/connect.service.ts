@@ -17,6 +17,20 @@ export class ConnectService {
     );
   }
 
+  getUserSuggestions(userId:string): Observable<any> {
+    return this.http.get<any>(environment.dislinktUrl + `/user/${userId}/connect/suggestions`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getUserConnectRequest(userId:string): Observable<any> {
+    return this.http.get<any>(environment.dislinktUrl + `/user/${userId}/connect/invitation`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   connect(userId:string, cUserId:string, isPrivate:boolean): Observable<any> {
     return this.http.post<any>(environment.dislinktUrl + `/user/${userId}/connect`,{id:cUserId,private:isPrivate}).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),

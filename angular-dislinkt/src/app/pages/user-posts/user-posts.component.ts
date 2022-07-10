@@ -1,4 +1,4 @@
-import { IPost } from './../../model/post';
+import { IPost } from 'src/app/model/post';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IUserProfile } from 'src/app/model/profile';
@@ -17,10 +17,7 @@ export class UserPostsComponent implements OnInit {
   posts: IPost[] = [];
   userId!: string;
   arePostsVisible: boolean = false;
-  roles: string[] = [
-    'ROLE_USER',
-    'ROLE_ADMIN'
-  ];
+  roles: string[] = ['ROLE_USER', 'ROLE_ADMIN'];
   constructor(
     private _profileService: UserProfileService,
     private _postService: PostService,
@@ -31,31 +28,42 @@ export class UserPostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this._route.snapshot.paramMap.get('id')!;
-    this._profileService
-      .getUserById('626ed920b5d7948d48ffc170')
-      .subscribe((user) => {
-        this._connectService.getUserConnections(user.id).subscribe(data=>{
-          data.connections.every((connection:any) => {
-            if(connection.cUserId === this.userId){
-              this.arePostsVisible = true;
-              return false;
-            }
-            return true;
-          });
-        });
-        if(user.isPrivate===false || user.id === '626ed920b5d7948d48ffc170'){
-          this.arePostsVisible = true;
-        }
-        this.user = user.user;
-        if (this.arePostsVisible) {
-          this._postService.getUserPosts(this.user.id).subscribe((data) => {
-            this.posts = data.posts;
-          });
-        } else {
-          this._postService.getPublicUserPosts(this.user.id).subscribe((data) => {
-            this.posts = data.posts;
-          });
-        }
-      });
+    this._userService.getUser().subscribe((user) => {
+      this.user = user;
+      this._postService.getUserPosts(user.id).subscribe(data=>{
+        this.posts = data.posts;
+      })
+    });
+    // this._profileService
+    //   .getUserById('626ed920b5d7948d48ffc170')
+    //   .subscribe((user) => {
+    //     this._connectService.getUserConnections(user.id).subscribe((data) => {
+    //       data.connections.every((connection: any) => {
+    //         if (connection.cUserId === this.userId) {
+    //           this.arePostsVisible = true;
+    //           return false;
+    //         }
+    //         return true;
+    //       });
+    //     });
+    //     if (
+    //       user.isPrivate === false ||
+    //       user.id === '626ed920b5d7948d48ffc170'
+    //     ) {
+    //       this.arePostsVisible = true;
+    //     }
+    //     this.user = user.user;
+    //     if (this.arePostsVisible) {
+    //       this._postService.getUserPosts(this.user.id).subscribe((data) => {
+    //         this.posts = data.posts;
+    //       });
+    //     } else {
+    //       this._postService
+    //         .getPublicUserPosts(this.user.id)
+    //         .subscribe((data) => {
+    //           this.posts = data.posts;
+    //         });
+    //     }
+    //   });
   }
 }

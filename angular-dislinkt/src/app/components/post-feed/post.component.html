@@ -13,12 +13,12 @@
               alt="Profile Image"
             />
           </div>
-          <h2 class="pl-2">{{ user?.firstname }} {{ user.lastname }}</h2>
+          <h2 *ngIf="user" class="pl-2">{{ user?.firstname }} {{ user.lastname }}</h2>
         </div>
       </div>
       <div class="row">
         <div class="col font-weight-light">
-          {{ post?.createdAt }}
+          {{ post?.createdAt | date: 'dd/MM/yyyy'}}
         </div>
       </div>
     </div>

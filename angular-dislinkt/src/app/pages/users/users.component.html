@@ -1,0 +1,31 @@
+<div style="height: 200px;" class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="text-center">
+        <h1>Users</h1>
+      </div>
+      <form
+        class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto"
+      >
+        <div class="form-group mb-0">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fas fa-search"></i
+              ></span>
+            </div>
+            <input
+              class="form-control"
+              placeholder="filter"
+              name="search"
+              type="text"
+              [ngModel]="filter"
+              (ngModelChange)="searchUsers($event)"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-user-card  *ngFor="let u of users" [user]="u"></app-user-card>

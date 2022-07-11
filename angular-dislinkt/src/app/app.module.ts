@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
 import { NewsFeedComponent } from './pages/news-feed/news-feed.component';
 import { ChangeUserInfoComponent } from './pages/user-profile/edit/change-user-info.component';
@@ -28,6 +29,8 @@ import { PostComponent } from './components/post-feed/post.component';
 import { UserPostsComponent } from './pages/user-posts/user-posts.component';
 import { JobOffersComponent } from './pages/job-offers/job-offers.component';
 import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-job-offer.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     UserPostsComponent,
     HomeComponent,
     JobOffersComponent,
-    AddEditJobOfferComponent
+    AddEditJobOfferComponent,
+    UserCardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,8 @@ import { AddEditJobOfferComponent } from './pages/add-edit-job-offer/add-edit-jo
     MatTabsModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -12,6 +12,20 @@ export class UserProfileService {
 
   constructor(private http: HttpClient) {}
 
+  getUsers(): Observable<any> {
+    return this.http.get<any>(environment.dislinktUrl + `/user`).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  searchUsers(filter:string): Observable<any> {
+    return this.http.post<any>(environment.dislinktUrl + `/user/search`,JSON.stringify(filter)).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   getUserById(id: string): Observable<any> {
     return this.http.get<any>(environment.dislinktUrl + `/user/${id}`).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),

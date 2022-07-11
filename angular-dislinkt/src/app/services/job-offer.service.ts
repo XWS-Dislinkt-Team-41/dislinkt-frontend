@@ -40,7 +40,7 @@ export class JobOfferService {
   }
 
   searchJobOffer(filter:string): Observable<any> {
-    return this.http.post<any>(environment.dislinktUrl + `/jobOffer/search`,filter).pipe(
+    return this.http.post<any>(environment.dislinktUrl + `/jobOffer/search`,JSON.stringify(filter)).pipe(
       tap((data) => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
